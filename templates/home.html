@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>My Personal Website</h1>
+    <p>Hi, this is my personal website.</p>
+    <p><a href="/create">Ajouter un nouveau produit</a></p>
+    <a href="/update"> Editer un produit</a>
+    <p><table>
+      <tr>
+          {% for col in column_names %}
+          <th>{{col}}</th>
+          {% endfor %}
+      </tr>
+      {% for row in row_data %}
+      <tr>
+          {% for col, row_ in zip(column_names, row) %}
+          {% if col == link_column %}
+          <td>
+              <button type="submit" value={{ row_ }} name="edit" form="patient_form" class="patient_button">
+                  {{ row_ }}
+              </button>
+          </td>
+          {% else %}
+          <td>{{row_}}</td>
+          {% endif %}
+          {% endfor %}
+      </tr>
+      {% endfor %}
+  
+  </table></p>
+  </body>
+</html>
